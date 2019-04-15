@@ -2,7 +2,7 @@
 <package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" version="2.0">
   <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
     <dc:identifier id="bookid">General Test</dc:identifier>
-    <dc:title>EC Test</dc:title>
+    <dc:title>EC Test [[master]]</dc:title>
     <dc:creator xmlns:opf="http://www.idpf.org/2007/opf" opf:file-as="BPE Editorial" opf:role="aut">BPE Editorial</dc:creator>
     <dc:language>en-US</dc:language>
     <dc:publisher>Bridgepoint Education</dc:publisher>
