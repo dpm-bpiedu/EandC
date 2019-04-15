@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://www.idpf.org/2007/opf" unique-identifier="bookid" version="2.0">
+  <metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <dc:identifier id="bookid">General Test</dc:identifier>
+    <dc:title>EC Test</dc:title>
+    <dc:creator xmlns:opf="http://www.idpf.org/2007/opf" opf:file-as="BPE Editorial" opf:role="aut">BPE Editorial</dc:creator>
+    <dc:language>en-US</dc:language>
+    <dc:publisher>Bridgepoint Education</dc:publisher>
+    <dc:date xmlns:opf="http://www.idpf.org/2007/opf" opf:event="modification">2016-07-08</dc:date>
+    <meta name="cover" content="cover.jpg" />
+  </metadata>
+  <manifest>
+    <item href="Text/test-01.xhtml" id="ec" media-type="application/xhtml+xml" />
+    <item href="toc.ncx" id="ncx" media-type="application/x-dtbncx+xml" />
+    <item href="Styles/0.0-test.css" id="x0.0-test.css" media-type="text/css" />    
+    <item href="Styles/750.css" id="x750.css" media-type="text/css" />
+    <item href="Scripts/app-a.js" id="app-a.js" media-type="text/javascript"/>
+    <item href="Scripts/app-b.js" id="app-b.js" media-type="text/javascript"/>  
+	  
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="test-01" /> 	
+  </spine>
+
+</package>
