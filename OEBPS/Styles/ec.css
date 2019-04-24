@@ -1,0 +1,83 @@
+body {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CSS FOR BEHAVIOR */
+
+
+[aria-expanded="false"] ~ div {
+    display: none;
+}
+
+[aria-expanded="true"] ~ div {
+    display: block;
+}
+
+
+/* CSS FOR STYLE */
+
+[aria-expanded="true"] ~ div {
+    padding: 20px 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+}
+
+.ec_trigger_1[aria-expanded="false"]::after {
+    display: inline;
+    content: '\0002B';
+    margin-left: 5px;
+}
+
+.ec_trigger_1[aria-expanded="true"]::after {
+    display: inline;
+    content: '\02212';
+    margin-left: 5px;
+}
+
+.ec_trigger_2[aria-expanded="false"]::after {
+    display: inline;
+    content: '\025BC';
+    margin-left: 5px;
+}
+
+.ec_trigger_2[aria-expanded="true"]::after {
+    display: inline;
+    content: '\025B2';
+    margin-left: 5px;
+}
+
+.ec_hidden>div {
+	display:none;
+}
+
+.ec_visible>div {
+	display:block;
+}
+
+
+
+.text_container div {
+	border-bottom:3px solid #DDD;
+	margin-bottom: 18px;
+}
+.text_container h4 {
+	text-align:center;
+	font-weight: 600;
+	font-size: 18px;
+	border-bottom: 3px solid #DDD;
+	cursor: pointer;
+	color: #C92B56;
+}
+
+	p.close {
+		font-size: 14px;
+		font-weight:bold;
+		cursor:pointer;
+		text-align:right;
+	}
+		p.close span {
+			font-weight: 300 !important;	
+		}
