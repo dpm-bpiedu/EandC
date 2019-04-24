@@ -16,7 +16,7 @@
                     btn.setAttribute("aria-expanded", "false");
                 }
 
-            });
+            }, false);
         });
     }
 
@@ -31,7 +31,7 @@
                 openBtn = document.querySelector("[aria-controls='" + btn.getAttribute('name') + "']");
                 openBtn.setAttribute("aria-expanded", "false");
 
-            });
+            }, false);
         });
     }
 

@@ -7,18 +7,18 @@ body {
 /* CSS FOR BEHAVIOR */
 
 
-[aria-expanded="false"] + div {
+[aria-expanded="false"] ~ div {
     display: none;
 }
 
-[aria-expanded="true"] + div {
+[aria-expanded="true"] ~ div {
     display: block;
 }
 
 
 /* CSS FOR STYLE */
 
-[aria-expanded="true"] + div {
+[aria-expanded="true"] ~ div {
     padding: 20px 40px;
     margin-top: 20px;
     margin-bottom: 20px;
