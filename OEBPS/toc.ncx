@@ -9,13 +9,11 @@
     <meta content="0" name="dtb:maxPageNumber"/>
   </head>
   <docTitle>
-    <text>EC Test [[a]]</text>
+    <text>EC Test [[b]]</text>
   </docTitle>
 <navMap>
 
-<navPoint id="test1-0" playOrder="1"><navLabel><text>Test</text></navLabel><content src="Text/test-01.xhtml#test1-0"/>
-	<navPoint id="test1-1" playOrder="2"><navLabel><text>Test 1.1</text></navLabel><content src="Text/test-01.xhtml#test1-1"/></navPoint>
-</navPoint>
+<navPoint id="test1-0" playOrder="1"><navLabel><text>Test</text></navLabel><content src="Text/test-01.xhtml#test1-0"/></navPoint>
 
  </navMap>
 </ncx>
