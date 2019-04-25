@@ -9,5 +9,6 @@ In phase 3, we'll try to regulate behavior depending on screen size.
 
 #### Files
 
-0.0-test.css is Blaine's base design
+0.0-test.css is Blaine's base design.
+
 ec.css is design specific to the expand/collapse feature that works in conjunction with the script.
