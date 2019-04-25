@@ -1,23 +1,4 @@
-/* CSS FOR BEHAVIOR */
-
-
-[aria-expanded="false"]~div {
-    display: none;
-}
-
-[aria-expanded="true"]~div {
-    display: block;
-}
-
-
-/* CSS FOR STYLE */
-
-/* [aria-expanded="true"]~div {
-    padding: 20px 40px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: whitesmoke;
-} */
+/* CSS FOR EXPAND COLLAPSE (DISCLOSURE) */
 
 .ec_expand1[aria-expanded="false"]::after {
     display: inline;
@@ -37,7 +18,7 @@
     margin-left: 5px;
 }
 
-.ec_content {
+.ecContent1 {
     border-bottom: 3px solid #DDD;
     margin-bottom: 18px;
 }
@@ -57,9 +38,10 @@ button.ec_expand2 {
     border-bottom: 3px solid #DDD;
     background-color: #ffffff;
     color: #C92B56;
+    cursor: pointer
 }
 
-button.ec_collapse {
+button.ec_collapse1 {
     display: block;
     font-size: 14px;
     font-weight: 300;
@@ -68,5 +50,6 @@ button.ec_collapse {
     margin-left: auto;
     border: none;
     background-color: #ffffff;
+    cursor: pointer;
 }
 
