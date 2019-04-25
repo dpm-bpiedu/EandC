@@ -1,47 +1,46 @@
 (function expandCollapse() {
 
-    function setOpenBtns() {
+    var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]");
 
-        var btnsOpen = document.querySelectorAll("[aria-expanded][aria-controls]"),
-            isCollapsed;
+    var btnObj, btnString, ecContent, btnToggle, btnCollapse;
 
-        btnsOpen.forEach(function (btn, index) {
-            btn.addEventListener("click", function (e) {
-
-                isCollapsed = btn.getAttribute("aria-expanded") === "false";
-
-                if (isCollapsed) {
-                    btn.setAttribute("aria-expanded", "true");
-                } else {
-                    btn.setAttribute("aria-expanded", "false");
-                }
-
-            }, false);
-        });
-    }
-
-    function setCloseBtns() {
-
-        var btnsClose = document.querySelectorAll("[name^='ecbox']"),
-            openBtn;
-
-        btnsClose.forEach(function (btn, index) {
-            btn.addEventListener("click", function (e) {
-
-                openBtn = document.querySelector("[aria-controls='" + btn.getAttribute('name') + "']");
-                openBtn.setAttribute("aria-expanded", "false");
-
-            }, false);
-        });
-    }
-
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-        setOpenBtns();
-        setCloseBtns();
-
+    toggleBtns.forEach(function (btnToggle) {
+        btnCollapse = document.querySelector(`[name='${btnToggle.getAttribute("aria-controls")}']`);
+        ecInitCollapse(btnToggle);
+        btnToggle.addEventListener("click", function (e) {
+            ecToggle(e)
+        }, false);
+        btnCollapse.addEventListener("click", function (e) {
+            ecCollapse(e)
+        }, false);
     });
 
+    function ecToggle(current) {
+        btnObj = current.target;
+        btnString = btnObj.getAttribute("aria-controls");
+        ecContent = document.getElementById(btnString);
+        if (btnObj.getAttribute("aria-expanded") === "false") {
+            btnObj.setAttribute("aria-expanded", "true");
+            ecContent.style.display = "block";
+        } else {
+            btnObj.setAttribute("aria-expanded", "false");
+            ecContent.style.display = "none";
+        }
+    }
+
+    function ecCollapse(current) {
+        btnObj = current.target;
+        btnString = btnObj.getAttribute("name");
+        btnToggle = document.querySelector(`[aria-controls='${btnString}']`);
+        ecContent = document.getElementById(btnString);
+        ecContent.style.display = "none";
+        btnToggle.setAttribute("aria-expanded", "false");
+    }
+
+    function ecInitCollapse(obj) {
+        btnString = obj.getAttribute("aria-controls");
+        ecContent = document.getElementById(btnString);
+        ecContent.style.display = "none";
+    }
 
 })();
