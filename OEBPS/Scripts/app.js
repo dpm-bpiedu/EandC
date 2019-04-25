@@ -4,45 +4,40 @@
     var collapseBtns = document.querySelectorAll("[name^='ecbox']");
     var ecContentItems = document.querySelectorAll("[id^=ecbox]");
 
-    function ecToggle(eventTarget, ecContent) {
-        var isCollapsed = eventTarget.getAttribute("aria-expanded") === "false";
-        console.log("Toggle: ", ecContent); 
-        console.log("target: ", eventTarget);
-        
+    function ecToggle(current) {
+        var isCollapsed = current.getAttribute("aria-expanded") === "false";
+        var currentString = current.getAttribute("aria-controls");
+        var currentContent = document.getElementById(currentString);
         if(isCollapsed) {
-            eventTarget.setAttribute("aria-expanded", "true");
-            ecContent.classList.replace("ec_collapsed", "ec_expanded");
+            current.setAttribute("aria-expanded", "true");
+            currentContent.classList.replace("ec_collapsed", "ec_expanded");
         } else {
-            eventTarget.setAttribute("aria-expanded", "false");
-            ecContent.classList.replace("ec_expanded", "ec_collapsed");
-        }  
+            current.setAttribute("aria-expanded", "false");
+            currentContent.classList.replace("ec_expanded", "ec_collapsed");
+        }
              
     }
 
-    function ecCollapse(eventTarget, collapseContent, toggleBtn) {    
-        console.log("Collapse: ", collapseContent);
-        collapseContent.classList.replace("ec_expanded", "ec_collapsed");       
-        toggleBtn.setAttribute("aria-expanded", "false");        
+    function ecCollapse(current) { 
+        console.log("Current: ", current);
+        var currentString = current.getAttribute("name");
+        var currentToggle = document.querySelector("[aria-controls='" +  currentString + "']");
+        var currentContent = document.getElementById(currentString);
+        console.log("String: ", currentString);
+        console.log("Toggle: ", currentToggle);
+        console.log("Content: ", currentContent);
     }
 
     ecContentItems.forEach(function(item, index) {
-        console.log("item: ", index);
         item.classList.add("ec_collapsed");
     });
 
     toggleBtns.forEach(function(btn, index) {
-        console.log("toggleBtn: ", index);
-        var toggleString = btn.getAttribute("aria-controls");
-        var toggleContent = document.getElementById(toggleString);
-        btn.addEventListener("click", function(e) {ecToggle(e.target, toggleContent)}, false);
+         btn.addEventListener("click", function() {ecToggle(this)}, false);
     });
     
     collapseBtns.forEach(function(btn, index) {
-        console.log("collapseBtn: ", index);
-        var collapseString = btn.getAttribute("name");
-        var collapseContent = document.getElementById(collapseString); 
-        var toggleBtn = document.querySelector("[aria-controls='" + collapseString + "']")       
-        btn.addEventListener("click", function(e) {ecCollapse(e.target, collapseContent, toggleBtn)}, false);
+        btn.addEventListener("click", function() {ecCollapse(this)}, false);
     });     
  
 })();
