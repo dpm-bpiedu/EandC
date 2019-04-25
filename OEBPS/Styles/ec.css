@@ -1,8 +1,14 @@
 /* CSS FOR EXPAND COLLAPSE (DISCLOSURE) */
 
-[id^="ecbox"] {
+.ec_expanded {
+    display: block;
+}
+
+.ec_collapsed {
     display: none;
 }
+
+
 
 .ec_expand1[aria-expanded="false"]::after {
     display: inline;
@@ -19,6 +25,12 @@
 .ec_expand2[aria-expanded="false"]::after {
     display: inline;
     content: '\025BC';
+    margin-left: 5px;
+}
+
+.ec_expand2[aria-expanded="true"]::after {
+    display: inline;
+    content: '\025B2';
     margin-left: 5px;
 }
 
