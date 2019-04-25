@@ -1,46 +1,38 @@
 (function expandCollapse() {
 
     var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]");
+    var collapseBtns = document.querySelectorAll("[name^='ecbox']");
 
-    var btnObj, btnString, ecContent, btnToggle, btnCollapse;
-
-    toggleBtns.forEach(function (btnToggle) {
-        btnCollapse = document.querySelector(`[name='${btnToggle.getAttribute("aria-controls")}']`);
-        ecInitCollapse(btnToggle);
-        btnToggle.addEventListener("click", function (e) {
-            ecToggle(e)
-        }, false);
-        btnCollapse.addEventListener("click", function (e) {
-            ecCollapse(e)
-        }, false);
-    });
-
-    function ecToggle(current) {
-        btnObj = current.target;
-        btnString = btnObj.getAttribute("aria-controls");
-        ecContent = document.getElementById(btnString);
-        if (btnObj.getAttribute("aria-expanded") === "false") {
-            btnObj.setAttribute("aria-expanded", "true");
+    function ecToggle(eventTarget) {
+        var isCollapsed = eventTarget.getAttribute("aria-expanded") === "false";
+        var btnString = eventTarget.getAttribute("aria-controls");
+        var ecContent = document.getElementById(btnString);
+        console.log(btnString);
+        if(isCollapsed) {
+            eventTarget.setAttribute("aria-expanded", "true");
             ecContent.style.display = "block";
         } else {
-            btnObj.setAttribute("aria-expanded", "false");
+            eventTarget.setAttribute("aria-expanded", "false");
             ecContent.style.display = "none";
-        }
+        }        
     }
 
-    function ecCollapse(current) {
-        btnObj = current.target;
-        btnString = btnObj.getAttribute("name");
-        btnToggle = document.querySelector(`[aria-controls='${btnString}']`);
-        ecContent = document.getElementById(btnString);
+    function ecCollapse(eventTarget) {
+        var btnString = eventTarget.getAttribute("name");
+        var ecContent = document.getElementById(btnString);
+        var toggleBtn = document.querySelector("[aria-controls='" + btnString + "']");
         ecContent.style.display = "none";
-        btnToggle.setAttribute("aria-expanded", "false");
+        toggleBtn.setAttribute("aria-expanded", "false");
     }
 
-    function ecInitCollapse(obj) {
-        btnString = obj.getAttribute("aria-controls");
-        ecContent = document.getElementById(btnString);
-        ecContent.style.display = "none";
-    }
-
+    toggleBtns.forEach(function(btn, index) {
+        console.log("toggleBtn: ", index);
+        btn.addEventListener("click", function(e) {ecToggle(e.target)}, false);
+    });
+    
+    collapseBtns.forEach(function(btn, index) {
+        console.log("collapseBtn: ", index);
+        btn.addEventListener("click", function(e) {ecCollapse(e.target)}, false);
+    });     
+ 
 })();
