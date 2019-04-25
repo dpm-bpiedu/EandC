@@ -15,31 +15,27 @@
             current.setAttribute("aria-expanded", "false");
             currentContent.classList.replace("ec_expanded", "ec_collapsed");
         }
-             
     }
 
     function ecCollapse(current) {
         var currentString = current.getAttribute("name");
         var currentToggle = document.querySelector("[aria-controls='" +  currentString + "']");
         var currentContent = document.getElementById(currentString);
-        console.log("String: ", currentString);
-        console.log("Toggle: ", currentToggle);
-        console.log("Content: ", currentContent);
 
         currentToggle.setAttribute("aria-expanded", "false");
         currentContent.classList.replace("ec_expanded", "ec_collapsed");
 
     }
 
-    ecContentItems.forEach(function(item, index) {
+    ecContentItems.forEach(function(item) {
         item.classList.add("ec_collapsed");
     });
 
-    toggleBtns.forEach(function(btn, index) {
+    toggleBtns.forEach(function(btn) {
          btn.addEventListener("click", function() {ecToggle(this)}, false);
     });
     
-    collapseBtns.forEach(function(btn, index) {
+    collapseBtns.forEach(function(btn) {
         btn.addEventListener("click", function() {ecCollapse(this)}, false);
     });     
  

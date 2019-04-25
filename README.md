@@ -6,3 +6,8 @@ In phase 1, Blaine's design was modified to account for notes and highlights and
 In phase 2, we'll try to have some markup such as buttons and aria attributes added dynamically on page load, instead of hardcoded.
 
 In phase 3, we'll try to regulate behavior depending on screen size.
+
+#### Files
+
+0.0-test.css is Blaine's base design
+ec.css is design specific to the expand/collapse feature that works in conjunction with the script.
