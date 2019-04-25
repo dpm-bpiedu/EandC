@@ -18,14 +18,17 @@
              
     }
 
-    function ecCollapse(current) { 
-        console.log("Current: ", current);
+    function ecCollapse(current) {
         var currentString = current.getAttribute("name");
         var currentToggle = document.querySelector("[aria-controls='" +  currentString + "']");
         var currentContent = document.getElementById(currentString);
         console.log("String: ", currentString);
         console.log("Toggle: ", currentToggle);
         console.log("Content: ", currentContent);
+
+        currentToggle.setAttribute("aria-expanded", "false");
+        currentContent.classList.replace("ec_expanded", "ec_collapsed");
+
     }
 
     ecContentItems.forEach(function(item, index) {
