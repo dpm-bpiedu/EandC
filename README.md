@@ -1,4 +1,4 @@
 # EandC 
-### Branch phase1.1
+### Branch phase1.2
 
 Changed script to reduce forEach to one.
