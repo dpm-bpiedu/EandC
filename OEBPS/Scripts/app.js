@@ -2,7 +2,7 @@
 
     var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]");
     var stringStem = "ecbox_";
-    var isCollapsed, currentString, currentContent, currentToggle, ecString,ecContent,collapseBtn;
+    var isCollapsed, currentString, currentContent, currentToggle, ecString, ecContent, collapseBtn;
 
     function ecToggle(currentObj, index) {
         isCollapsed = currentObj.getAttribute("aria-expanded") === "false";
