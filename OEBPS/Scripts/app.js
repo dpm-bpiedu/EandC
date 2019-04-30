@@ -1,8 +1,6 @@
 (function expandCollapse() {
 
-    var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]");
-    var collapseBtns = document.querySelectorAll("[name^='ecbox']");
-    var ecContentItems = document.querySelectorAll("[id^=ecbox]");
+    var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]"),ecString,ecContent,collapseBtn;
 
     function ecToggle(current) {
         var isCollapsed = current.getAttribute("aria-expanded") === "false";
@@ -27,16 +25,15 @@
 
     }
 
-    ecContentItems.forEach(function(item) {
-        item.classList.add("ec_collapsed");
-    });
-
     toggleBtns.forEach(function(btn) {
-         btn.addEventListener("click", function() {ecToggle(this)}, false);
-    });
-    
-    collapseBtns.forEach(function(btn) {
-        btn.addEventListener("click", function() {ecCollapse(this)}, false);
-    });     
+        ecString = btn.getAttribute("aria-controls");
+        ecContent = document.querySelector("#"+ ecString);
+        collapseBtn = document.querySelector("[name='" + ecString + "']");
+
+        ecContent.classList.add("ec_collapsed");
+        btn.addEventListener("click", function() {ecToggle(this)}, false);
+        collapseBtn.addEventListener("click", function() {ecCollapse(this)}, false);
+
+   });       
  
 })();
