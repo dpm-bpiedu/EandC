@@ -41,9 +41,7 @@
 
 button.ec_expand1,
 button.ec_expand2 {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
+    display: inline-block;
     padding-bottom: 8px;
     text-align: center;
     font-weight: 600;
@@ -51,7 +49,7 @@ button.ec_expand2 {
     border-top: none;
     border-right: none;
     border-left: none;
-    border-bottom: 3px solid #DDD;
+    border-bottom: none;
     background-color: #ffffff;
     color: #C92B56;
     cursor: pointer
@@ -69,3 +67,8 @@ button.ec_collapse1 {
     cursor: pointer;
 }
 
+h4.ec_heading {
+    border-bottom: 3px solid #DDD;
+    text-align: center;
+    padding: 0;
+}
