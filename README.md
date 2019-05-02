@@ -1,4 +1,4 @@
 # EandC 
-### Branch phase1.2
+### Branch phase2
 
-Changed script to reduce forEach to one.
+Reduce hardcoded markup by adding dynamically with script.
