@@ -1,4 +1,4 @@
 # EandC 
-### Branch phase1.1
+### Branch phase3
 
-Changed script to reduce forEach to one.
+Include functions to determine screen size and respond accordingly.
