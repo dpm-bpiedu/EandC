@@ -1,41 +1,24 @@
-(function expandCollapse() {
+(function monitorSize() {
+    var w = window,
+        d = document,
+        b = d.querySelector("body"),
+        x = w.innerWidth,
+        y = w.innerHeight,
+        sW = d.getElementById("screenWidth"),
+        sH = d.getElementById("screenHeight");
 
-    var toggleBtns = document.querySelectorAll("[aria-expanded][aria-controls]");
-    var stringStem = "ecbox_";
-    var isCollapsed, currentString, currentContent, currentToggle, ecString, ecContent, collapseBtn;
-
-    function ecToggle(currentObj, index) {
-        isCollapsed = currentObj.getAttribute("aria-expanded") === "false";
-        currentString = stringStem + (++index);
-        currentContent = document.getElementById(currentString);
-        if(isCollapsed) {
-            currentObj.setAttribute("aria-expanded", "true");
-            currentContent.classList.replace("ec_collapsed", "ec_expanded");
-        } else {
-            currentObj.setAttribute("aria-expanded", "false");
-            currentContent.classList.replace("ec_expanded", "ec_collapsed");
-        }
+    function checkDimensions(e) {
+        sW.textContent = e.target.innerWidth;
+        sH.textContent = e.target.innerHeight;
     }
 
-    function ecCollapse(current, index) {
-        currentString = stringStem + (++index);
-        currentToggle = document.querySelector("[aria-controls='" +  currentString + "']");
-        currentContent = document.getElementById(currentString);
-
-        currentToggle.setAttribute("aria-expanded", "false");
-        currentContent.classList.replace("ec_expanded", "ec_collapsed");
-
+    function initDimensions() {
+        sW.textContent = x;
+        sH.textContent = y;
     }
 
-    toggleBtns.forEach(function(btn, index) {
-        ecString = btn.getAttribute("aria-controls");
-        ecContent = document.querySelector("#"+ ecString);
-        collapseBtn = document.querySelector("[name='" + ecString + "']");
+    initDimensions();
 
-        ecContent.classList.add("ec_collapsed");
-        btn.addEventListener("click", function() {ecToggle(this, index)}, false);
-        collapseBtn.addEventListener("click", function() {ecCollapse(this, index)}, false);
-
-   });       
- 
+    window.addEventListener("resize", checkDimensions, false);
+    
 })();
