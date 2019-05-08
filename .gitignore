@@ -2,3 +2,5 @@
 .Thumbs_db
 *.epub
 tests/
+
+*.codekit3
