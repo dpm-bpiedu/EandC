@@ -37,7 +37,7 @@
    });       
  
 })();
-/*
+
 (function constellationTipBox() {
 
 	////////////////////////////////////////////////////////////////////
@@ -63,49 +63,7 @@
 		});
 		button.addEventListener("click", fn);
 		return button;
-	}
-
-	// capitalize first letter of a string
-	function sentenceCase(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-
-	// get a specific parent 
-	function getParent(el, attr, attrValue, returnAttr) {
-		let elParent = el.parentElement;
-		let thisClass = elParent.getAttribute(attr);
-		let thisAttr = returnAttr;
-		let i = 0;
-
-		function isEl() {
-			if (thisClass.lastIndexOf(attrValue, 0) === 0) {
-				return true;
-			} else {
-				i++;
-				return false;
-			}
-		}
-
-		isEl();
-
-		while (!isEl()) {
-			elParent = elParent.parentElement;
-			thisClass = elParent.getAttribute(attr);
-			if (i === 10) {
-				console.log("Error: parent cannot be found");
-				break;
-			}
-		}
-
-		return elParent.getAttribute(thisAttr);
-
-	}
-
-	// calculate the needed position value
-	function calcLeft(arrLength, width) {
-		let leftPos = arrLength * width;
-		return `${leftPos.toString()}px`;
-	}
+	}	
 
 	////////////////////////////////////////////////////////////////////
 	//// PAGE OBJECT ///////////////////////////////////////////////////
@@ -139,7 +97,7 @@
 			}
 		},
 		setBoxes: function () {
-			this.boxes.forEach(function (thisBox, index) {
+			this.boxes.forEach(function (thisBox) {
 				box.setBox(thisBox);
 			});
 		},
@@ -267,4 +225,4 @@
 	page.setPage();
 
 }());
-*/
+
